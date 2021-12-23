@@ -1,3 +1,6 @@
+"""SD-UNET"""
+""" A Novel Segmentation Framework for CT Images of 3 Lung Infections """
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -76,7 +79,7 @@ class SELayer(nn.Module):
         return x * y.expand_as(x)
 
 
-
+""" ASPP"""
 class ASPPConv(nn.Sequential):
     def __init__(self, in_channels, out_channels, dilation):
         modules = [
@@ -152,7 +155,7 @@ class DeepLabHead(nn.Module):
             elif isinstance(m, (nn.BatchNorm2d, nn.GroupNorm)):
                 nn.init.constant_(m.weight, 1)
                 nn.init.constant_(m.bias, 0)
-
+""" Dense ASPP"""
 class DenseASPP(nn.Module):
     def __init__(self, in_channels, atrous_rates):
         super(DenseASPP, self).__init__()
