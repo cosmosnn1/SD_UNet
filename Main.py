@@ -1,3 +1,4 @@
+"""Run the project from the main function"""
 import argparse
 import os
 
@@ -7,7 +8,7 @@ from Train_test import Solver
 from data_loader import get_loader_INF,get_loader
 from torch.backends import cudnn
 import random
-
+"""main function"""
 def main(config):
     global train_loader, valid_loader, test_loader
     cudnn.benchmark = True
@@ -16,7 +17,7 @@ def main(config):
         print('Your input for model_type was %s'%config.model_type)
         return
 
-    # Create directories if not exist
+    """ Create directories if not exist"""
     # class=3
     config.model_path_3 = os.path.join(config.model_path_3, config.model_type)
     config.result_path_3 = os.path.join(config.result_path_3, config.model_type)
@@ -44,6 +45,7 @@ def main(config):
 
 
     print(config)
+    """import the data"""
     if config.classes == 1:
         train_loader = get_loader(classes=config.classes,
                                   image_path=config.train_path,
@@ -95,13 +97,14 @@ def main(config):
 
 
 
-    # Train and sample the images
+   """Train and sample the images"""
     if config.mode == 'train':
         solver.train()
+    """Test and sample the images"""
     elif config.mode == 'test':
         solver.test()
 
-
+"""config"""
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     # model hyper-parameters
