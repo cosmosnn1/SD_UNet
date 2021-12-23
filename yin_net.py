@@ -1,5 +1,5 @@
 """SD-UNET"""
-""" A Novel Segmentation Framework for CT Images of 3 Lung Infections """
+""" A Novel Segmentation Framework for CT Images of Lung Infections """
 
 import torch
 import torch.nn as nn
