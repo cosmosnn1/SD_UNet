@@ -1,3 +1,6 @@
+
+"""SD-UNET Architecture"""
+"""A Novel Segmentation framework for CT Images of 3 Lung Infections"""
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -8,7 +11,7 @@ from .feature_denosing import NonLocalBlockND
 from.yin_net import DenseASPP
 
 
-
+"""  conv block ""
 class conv_block(nn.Module):
     def __init__(self, ch_in, ch_out):
         super(conv_block, self).__init__()
@@ -24,7 +27,7 @@ class conv_block(nn.Module):
         x = self.conv(x)
         return x
 
-
+""" SA moudule """
 class SqueezeAttentionBlock(nn.Module):
     def __init__(self, ch_in, ch_out):
         super(SqueezeAttentionBlock, self).__init__()
@@ -61,7 +64,7 @@ class InConv(nn.Module):
         x = self.block(x)
         return x
 
-
+"""  down-sampling  """
 class Down(nn.Module):
     def __init__(self, in_channels, out_channels):
         super(Down, self).__init__()
@@ -84,7 +87,7 @@ class Down(nn.Module):
         x = self.block(x)
         return x
 
-
+"""up-sampling"""
 class Up(nn.Module):
     def __init__(self, in_channels, out_channels):
         super(Up, self).__init__()
@@ -102,7 +105,7 @@ class Up(nn.Module):
         #x=self._conv(x)
         x = self.block(x)
         return x
-
+""" output the semantic segmentation map """
 class OutConv(nn.Module):
     def __init__(self, in_channels, out_channels):
         super(OutConv, self).__init__()
@@ -130,8 +133,8 @@ class OutConv(nn.Module):
 
         return x
 
-
-class DualNorm_Unet(nn.Module):
+"""SD-UNET"""
+class SD-UNet(nn.Module):
     def __init__(self, img_ch=3, output_ch=1):
         super(DualNorm_Unet, self).__init__()
 
