@@ -1,3 +1,6 @@
+"""SD-UNET"""
+""": A Novel Segmentation Framework for CT Images of 3 Lung Infections"""
+
 import os
 import numpy as np
 import cv2
@@ -17,7 +20,7 @@ from unet.unet_model import DualNorm_Unet
 from fcn8s import FCN8
 import csv
 from Loss import lossfunction,lossfunction_3
-
+"""train/test"""
 class Solver(object):
 	def __init__(self, config, train_loader, valid_loader, test_loader):
 
@@ -140,7 +143,7 @@ class Solver(object):
 
 		self.unet.to(self.device)
 		# self.print_network(self.unet, self.model_type)
-
+"""train"""
 	def train(self):
 		"""Train encoder, generator and discriminator."""
 
@@ -149,13 +152,13 @@ class Solver(object):
 
 		global acc, SE, SP, PC, F1, DC, JS, loss, epoch
 
-		# U-Net Train
+		# SD-UNet Train
 		if os.path.isfile(self.unet_path):
 			# Load the pretrained Encoder
 			self.unet.load_state_dict(torch.load(self.unet_path))
 			print('%s is Successfully Loaded from %s'%(self.model_type,self.unet_path))
 		else:
-			# Train for Encoder
+			
 			lr = self.lr
 			best_unet_score = 0.
 			#with torch.no_grad():
@@ -486,7 +489,7 @@ class Solver(object):
 			f.close()
 			del self.unet
 			del best_unet
-
+"""test"""
 	def test(self):
 
 
