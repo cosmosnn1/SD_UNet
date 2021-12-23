@@ -1,6 +1,6 @@
 """Train/Test"""
 """SD-UNET"""
-""": A Novel Segmentation Framework for CT Images of 3 Lung Infections"""
+""": A Novel Segmentation Framework for CT Images of Lung Infections"""
 
 import os
 import numpy as np
