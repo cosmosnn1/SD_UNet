@@ -5,10 +5,10 @@ A Novel Segmentation Framework for CT Images of Lung Infections
 window10(Ubuntu is Also OK)+pycharm+python3.7+pytorch1.8.1
 
 # RUN:
-Firstly, you should do is download the datasets and create the path of the datasets. then run ~ example:
+Firstly, you should do is download the datasets and create the path of the datasets. Then run ~ example:
 python main.py --action train&test --Model SD-UNet --epoch 200 --batch_size 4
  
-# RESULTS
+# RESULTS/files need to be created manually
 model/model-3 folder:
 After training, the saved model of binary-class and multi-class segmentation is in this folder.
 result/result-3 folder:
