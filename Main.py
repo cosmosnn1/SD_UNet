@@ -1,13 +1,16 @@
 """Run the project from the main function"""
+"""SD-Unet"""
+""": A Novel Segmentation Framework for CT Images of 3 Lung Infections"""
+
 import argparse
 import os
 
 import torch
-
 from Train_test import Solver
 from data_loader import get_loader_INF,get_loader
 from torch.backends import cudnn
 import random
+
 """main function"""
 def main(config):
     global train_loader, valid_loader, test_loader
